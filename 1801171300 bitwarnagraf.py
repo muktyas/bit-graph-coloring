@@ -21,7 +21,7 @@
 #				4	3	2	1	0	1	5	4	2
 import numpy as np
 
-n_makul = 9
+n_makul = 118
 
 # ubah ke dalam matriks adjacency (ketetanggaan)
 
@@ -38,7 +38,7 @@ def BuatInsidensi_Mhs_Makul(NamaFile, n_makul):
 	return inc
 
 
-inc = BuatInsidensi_Mhs_Makul("mhsmakul.txt", n_makul)
+inc = BuatInsidensi_Mhs_Makul("kode incidency.txt", n_makul)
 
 #ubah insidensi ke adjacency matriks makul
 
@@ -160,12 +160,18 @@ for baris in h_array:
 			ini.append(urutan[i])
 	warna.append(ini)
 
+keluaran = open('keluaran.txt','w')
 print warna
 print 'Okay, jadi bisa menggunakan',len(warna),'warna saja'
+keluaran.write('Okay, jadi bisa menggunakan %s warna saja\n' %(len(warna)))
+
 i = 0
 for baris in warna:
 	print 'warna',i,'bisa untuk titik:',baris
+	keluaran.write('warna %s bisa untuk titik: %s\n' %(i, baris))
 	i = i + 1
+
+keluaran.close()
 #~ npwarna = np.asarray(warna)
 #~ print npwarna
 	#~ print [urut[i] for i in xrange(n_makul) if baris[i] == 0 ]
